@@ -1,0 +1,17 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+:root {
+  --title-color: #38c7ff;
+  --title-size: 20px;
+}
+
+body {
+  @apply p-3
+}
+body > * {
+  @apply mb-3;
+}

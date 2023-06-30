@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>Tailwind CSS の一歩進んだ書き方を引用</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.change-your-style-according-to-the-situation').addEventListener('click', function(){
+                this.classList.toggle('active');
+            })
+        });
+    </script>
+</head>
+<body>
+    <cite class="text-9xl block"><a href="https://zenn.dev/ixkaito/articles/advanced-tailwindcss#%E7%8A%B6%E6%85%8B%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%82%92%E5%A4%89%E3%81%88%E3%82%8B" class="text-blue-500 underline">Tailwind CSS の一歩進んだ書き方</a>を引用</cite>
+
+    <h1 class="text-[10vw]">
+        任意値
+    </h1>
+
+    <h1 class="ml-[-1em]">
+        マイナス値は角括弧
+    </h1>
+
+    <h1 class="text-[clamp(32px,2.5vw+24px,48px)]">
+        値に calc() clamp() などを使う場合はスペースをつめる
+    </h1>
+    <h1 class="text-[clamp(32px, 2.5vw+24px, 48px)]">
+        値に calc() clamp() などを使う場合はスペースをつめ無い場合
+    </h1>
+
+    <h1 class="drop-shadow-[0_0_1em_#0ff]">
+        スペースが必要な値は代わりに _
+    </h1>
+
+    <h1 class="text-[length:var(--title-size)] text-[color:var(--title-color)]">
+        データ型の明示
+    </h1>
+
+    <h1 class="[--viewport-from:320] [--viewport-to:960] [--min-font-size:32] [--max-font-size:48]">
+        CSS カスタムプロパティ
+    </h1>
+
+    <h1 class="animate-bounce [animation-delay:3s]">
+        任意のプロパティ
+    </h1>
+
+    <h1 class="after:content-['👋🏼']">
+        ::before ::after などの疑似要素・擬似クラス
+    </h1>
+
+    <h1 class="text-2xl data-[size=large]:text-3xl">
+        data 属性
+    </h1>
+
+    <a href="https://example.com" class="group">
+        <h2 class="group-hover:underline">祖先要素の状態によるスタイリング</h2>
+        <p>Etiam facilisi eu dolor per leo ante…</p>
+    </a>
+
+    <div class="group">
+        <a href="https://example.com/">ネストされた祖先要素の状態によるスタイリング</a>
+        <div class="invisible group-hover:visible group/child">
+            <a href="https://example.com/child/">Child</a>
+            <div class="invisible group-hover/child:visible">
+                <a href="https://example.com/child/grandchild/">Grandchild</a>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="text-black/75 bg-red-500/[0.15]">
+        色の透明度は / で指定可能
+    </h1>
+
+    <h1 class="!font-normal">
+        ! で !important
+    </h1>
+
+    <ul class="[&>li]:border-b">
+        <li>子要素を</li>
+        <li>一括</li>
+        <li>指定</li>
+    </ul>
+
+    <ul class="[&_a]:block">
+        <li><a href="http://example.com/">子孫要素の</a></li>
+        <li><a href="http://example.com/">一括指定は</a></li>
+        <li><a href="http://example.com/">_ を使う</a></li>
+    </ul>
+
+    <h1 class="change-your-style-according-to-the-situation text-black [&.active]:text-red-500">
+        状態によってスタイルを変える（クリックするとテキストカラーが変わる）
+    </h1>
+    
+    <h1 class="text-black [div.home_&]:text-red-500">
+        特定の要素内でスタイルを変える
+    </h1>
+    <div class="home">
+        <h1 class="text-black [div.home_&]:text-red-500">
+            特定の要素内でスタイルを変える
+        </h1>
+    </div>
+
+    <h1 class="text-black group-[.home]:text-red-500">
+        特定の要素内でスタイルを変える（v3.2 で追加されたダイナミック group-*）
+    </h1>
+    <div class="group home">
+        <h1 class="text-black group-[.home]:text-red-500">
+            特定の要素内でスタイルを変える（v3.2 で追加されたダイナミック group-*）
+        </h1>
+    </div>
+
+    <h2 class="sr-only lg:not-sr-only">
+        メディアクエリの max-width（モバイルでは非表示にしたい場合、デスクトップでスタイルを戻す必要がある）
+    </h2>
+
+    <h2 class="max-lg:sr-only">
+        メディアクエリの max-width（max-* バリアントを使えば元に戻すという手間が不要）
+    </h2>
+
+    <h1 class="text-7xl min-[1440px]:text-[5vw]">
+        ダイナミックブレークポイント
+    </h1>
+</body>
+</html>
