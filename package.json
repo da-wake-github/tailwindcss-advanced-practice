@@ -1,7 +1,7 @@
 {
-  "name": "tailwindcss-practice",
+  "name": "tailwindcss-advanced-writing-practice",
   "version": "1.0.0",
-  "description": "tailwindcss-practice",
+  "description": "tailwindcss-advanced-writing-practice",
   "main": "index.js",
   "scripts": {
     "dev": "npx tailwindcss -i ./public/css_src/style.css -o ./public/css/style.css --watch"
